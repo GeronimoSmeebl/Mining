@@ -92,3 +92,9 @@ I bolded the parts I thought most important to explain.
 		* The links are for the actual scripts. The links to those scripts and others are aggregated on the following pages:
 			* http://razorenhanced.net/dokuwiki/doku.php?id=toolscripts
 			* http://razorenhanced.net/dokuwiki/doku.php?id=resourcegatheringscripts
+
+* __Known Bugs__
+	* Most bugs I've experienced are a result of malfunctions with rail mining.
+	* To mitigate bugs with rail mining, I would recommend not pressing start until your character is somewhat near the first location in your rail.
+	* If the STOP button is pressed and there is no message stating "Finished with mining work." then the script may not continue to function as intended which will necessitate stopping the script using the RE stop button or with the close button on the interface, then starting the script again.
+	* __I have not experienced, nor do I expect and bugs whose effects last beyond the termination of the script in which they arose (i.e. to my knowledge, any bugs that come up only affect the script until you close it; they do not have an effect when running the script again)__.
