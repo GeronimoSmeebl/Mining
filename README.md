@@ -64,16 +64,16 @@ I placed asterisks (*) in the places I thought most important
 * __BAG ALTERNATIVE__:
 	* Instead of using the Set Ore Bag button every time the script is run, the user can manually put their bag's Serial in the script's code at the top.
 		
-	* 1.Directions:
-		1.Select this script in the scripting section in RE and click Edit.
+	* Directions:
+		1. Select this script in the scripting section in RE and click Edit.
 			
-		1.Click the Inspect Entities button at the top of the Enhanced Script Editor.
+		1. Click the Inspect Entities button at the top of the Enhanced Script Editor.
 			
-		1.Select the bag you want to use for mining.
+		1. Select the bag you want to use for mining.
 			
-		1.In the Enhanced Item Inspector copy The Serial number of the bag (of the form 0xXXXXXXXX)
+		1. In the Enhanced Item Inspector copy The Serial number of the bag (of the form 0xXXXXXXXX)
 			
-		1.Paste that number on line 6 of the script to replace the serial number currently their.
+		1. Paste that number on line 6 of the script to replace the serial number currently their.
 		
 	* This will cause the script to set the ore bag to that selected bag every time it is run.
 	* This means you don't need to use the Set Ore Bag button and target that bag every time.
