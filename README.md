@@ -10,7 +10,7 @@ I bolded the parts I thought most important to explain.
 
 * Summary:
 	* Mines ore vein(s) to completion.
-	* Add the script to your Scripts folder in your RE (Razor Enhanced) directory and add the script in RE under the scripting section to use.
+	* Add the mining script and common.py to your Scripts folder in your RE (Razor Enhanced) directory and add the mining script in RE under the scripting section to use.
 		
 	* __The script is not perfect and has some edge case issues; the stop button can sometimes stop it from working, necessitating restarting the script. See the Known Bugs section for more information.__
 	* __I am happy to improve this script to the best of my ability. Please PM me (Geronimo Smeebl) if you have any problems or suggestions.__
