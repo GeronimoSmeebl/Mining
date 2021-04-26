@@ -1,7 +1,10 @@
 This script is intended for use on UO Eventine.
+
 Not intended to be used for AFK mining: AFK resource collection is NOT ALLOWED on UO Eventine.
 
+
 The script's interface is somewhat self-explanatory, but this README explains the details.
+
 I bolded the parts I thought most important to explain.
 
 * Summary:
