@@ -12,7 +12,7 @@ I bolded the parts I thought most important to explain.
 	* Add the script to your Scripts folder in your RE (Razor Enhanced) directory and add the script in RE under the scripting section to use.
 		
 	* __The script is not perfect and has some edge case imperfections; the stop button can sometimes stop it from working, necessitating restarting the script.__
-	* __If it starts to misbehave I recommend closing the script via the close button at the top right or via the RE scripting menu.__
+	* __If it starts to misbehave I recommend closing the script via the close button at the top right or via the RE scripting menu stop button.__
 	* __I will try to fix any/all bugs. Feel free to PM me (Geronimo) if you have any problems.__
 
 * BUTTONS:
