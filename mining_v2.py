@@ -1,14 +1,15 @@
 #
-# Things that change based on Player preference:
+# Global variables that user can modify:
 #
 Manual_Tool = None          #   <-- Manually selected mining tool                                #
 using_garg = False          #   <-- True if Player wants to use gargish pickaxe                  #
 Manual_Bag = 0x40601987     #   <-- Storage bag serial                                           #
 Rail_Name = ""              #   <-- Name of rail                                                 #
                             #       Note that rail must be in Data/Rails/ folder                 #
-Using_Rail = False
-Currently_Mining = False
+Using_Rail = False          #   <-- True if Player wants do rail mining                          #
 #
+
+Currently_Mining = False
 
 # Credit to Credzba, Fate's Whim, and Mourn
 # I used a lot of the code from their scripts
@@ -16,7 +17,7 @@ Currently_Mining = False
 # http://razorenhanced.net/dokuwiki/doku.php?id=resourcegatheringscripts
 
 #
-import common
+import g_tools
 
 import clr, time, thread, sys, System
 
@@ -38,7 +39,7 @@ from System.ComponentModel import BackgroundWorker
 
 #
 
-#
+# Values from Credzba and Fate's Whim's mining scripts
 shovelID = 0x0F39
 pickaxeID = 0x0E86
 waitForTarget = 5000
@@ -47,10 +48,9 @@ waitAfterPickAxe = 4000
 pickaxe_spots = List[int] (( 0x136D, 0x1367, 0x136A)) 
 CaveTiles = [ 0x0016, 0x0017, 0x0018, 0x0019, 0x245, 0x246, 0x247, 0x248, 0x249, 0x22b, 0x22c, 0x22d, 0x22e, 0x22f ]
 SoilTiles = [ 0x0073, 0x0074, 0x0075, 0x0076,  0x0077, 0x0078 ]
-Hues = List[int] (( 0 ))
 #
 
-#
+# Based on function from Credzba's mining.py
 def check_weight(bag):
     if Player.Weight > (Player.MaxWeight*.9) or Player.Weight > 520:
         store_ore(bag)
@@ -59,6 +59,7 @@ def check_weight(bag):
 #
 railCoords = None
 Journal.Clear()
+# Based on function from Fate's Whim's automine.py
 def gotoLocation(x1, y1):
     global Currently_Mining
     
@@ -71,7 +72,7 @@ def gotoLocation(x1, y1):
     Misc.Pause(600)
 #
 
-#
+# From Fate's Whim's automine.py
 MotionMap = {
                         "North": (0, -1), 
                         "Right": (+1, -1),
@@ -92,7 +93,7 @@ MotionMap = {
                         }  
 #
 
-#
+# From Credzba's mining.py
 def getVeins():
     findVeins = Items.Filter()
     findVeins.Enabled = True
@@ -107,7 +108,7 @@ def getVeins():
     return listVeins
 #
 
-#
+# Based on a function from Credzba's mining.py
 def mine_spot(tool, bag):
     global Currently_Mining
 
@@ -208,35 +209,32 @@ def mine_spot(tool, bag):
                 Target.Cancel()
 #
 
-quit_flag = False
-
-#
 # Makes tool(s) in case Player runs out
+quit_flag = False
 def make_tool():
     global quit_flag
 
-    if Items.BackpackCount( common.tinker_kitsID, 0 ) < 2:
+    if Items.BackpackCount( g_tools.tinker_kitsID, 0 ) < 2:
         if quit_flag:
             Player.HeadMessage(10, "Unable to make tool(s)")
             sys.exit()
         else:
-            common.MakeTinkerKits()
+            g_tools.make_tinker()
             quit_flag = true
             make_tool()
         #
     else:
-        common.MakeShovel()
+        g_tools.make_shovel()
         quit_flag = False
 #
 
-#
 # Returns Serial of tool for mining
-# Only gives gargish pickaxe if using_garg is true; otherwise gives pickaxe or shovel
+# Only gives gargish pickaxe if using_garg is true; otherwise gives non-gargisgh pickaxe or shovel
 def get_tool():
     if Manual_Tool != None:
         return Manual_Tool
 
-    tool_list = common.findRecursive(Player.Backpack.Serial, [pickaxeID, shovelID], False)
+    tool_list = g_tools.find_items([pickaxeID, shovelID], Player.Backpack.Serial)
 
     for item in tool_list:
         if item.ItemID == pickaxeID and ("garg" in item.Name.lower()) == using_garg:
@@ -253,7 +251,8 @@ def get_tool():
     return get_tool()
 #
 
-#
+# Returns storage bag being used. 
+# Somewhat trivial at this point, but would be useful for implementing a search to automatically determine a storage bag if one is not chosen.
 def get_storage():
     if Manual_Bag != None and Items.FindBySerial(Manual_Bag):
         return Manual_Bag
@@ -261,12 +260,10 @@ def get_storage():
         sys.exit()
 #
 
-#
-# Stores resources in keys if possible
-# Stores remaining ore in ore storage bag (if present)
+# Stores remaining ore in ore storage bag
+# TODO: Implement functionality for storage keys
 def store_ore(bag):
     ore_id = 0x19B9
-    # TODO: key storage
     
     # Storage bag
     if bag != None:
@@ -275,7 +272,7 @@ def store_ore(bag):
                 Items.Move(item, bag, item.Amount)
 #
 
-#
+# Starts delegating work: mining the spot once if stationary and starting rail traversal otherwise.
 def start_mining_work():
     global Using_Rail
     global Rail_Name
@@ -330,13 +327,10 @@ def start_mining_work():
     #
     except Exception as e:
         Player.HeadMessage(11, "Unable to traverse rail.")
-    #
 #
 
-#
-
+# 
 class mining_util(Form):
-
     def __init__(self):
         self.start_color = Color.FromArgb(10,225,10)
         self.stop_color = Color.FromArgb(225,10,10)
@@ -411,7 +405,7 @@ class mining_util(Form):
         self.Controls.Add(self.button5)
         self.Controls.Add(self.textbox)
         
-    def select_manual_tool(self,):
+    def select_manual_tool(self):
         global Manual_Tool
         
         selected = Target.PromptTarget("Select Pickaxe.")
@@ -492,7 +486,6 @@ class mining_util(Form):
             
         self.button5.BackColor = self.start_color
         self.button5.Text = "START"
-
 #
 
 form = mining_util()
