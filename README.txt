@@ -85,10 +85,14 @@
 	Credit:
 		I based this mining script on the following:
 		
-			Credzba's mining.py		http://razorenhanced.net/download/scripts/credzba/mining.py
-			Credzba's common.py		http://razorenhanced.net/download/scripts/credzba/common.py
-			Fate's Whim's automine.py	http://razorenhanced.net/download/scripts/fateswhim/automine.py
-			Mourn's RailRecorder.py		http://razorenhanced.net/download/scripts/mourn/RailRecorder.py
+			Credzba's mining.py:
+				http://razorenhanced.net/download/scripts/credzba/mining.py
+			Credzba's common.py:
+				http://razorenhanced.net/download/scripts/credzba/common.py
+			Fate's Whim's automine.py:
+				http://razorenhanced.net/download/scripts/fateswhim/automine.py
+			Mourn's RailRecorder.py:
+				http://razorenhanced.net/download/scripts/mourn/RailRecorder.py
 		
 		The links are for the actual scripts. The links to those scripts and others are aggregated on the following pages:
 			http://razorenhanced.net/dokuwiki/doku.php?id=toolscripts
