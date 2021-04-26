@@ -16,11 +16,11 @@
 			This allows the user to mine with a specific tool of their choosing. This feature is disabled by default.
 			Clicking the button and target your preferred pickaxe to use this feature.
 			
-			If a tool is not manually selected, the script will search through the player's backpack and select a tool arbitrarily (excluding gargish pickaxes as explained within its respective button description).
-			The default mode will also try to create a shovel if the user does not have any tools in their backpack.
+			The default tool mode searches through the player's backpack and selects a tool arbitrarily (excluding gargish pickaxes as explained within its respective button description).
+			The default tool mode will also try to create a shovel if the user does not have any tools in their backpack.
 	
 		Clear Manual Tool:
-			If a user has selected a manual tool, this button clears that selection, so the script will revert to the automatic version of searching through the backpack for a tool.
+			If a user has selected a manual tool, this button clears that selection, so the script will revert to the default tool mode.
 	
 *		Set Ore Bag:
 			The user must choose a bag for their ore.
@@ -59,7 +59,8 @@
 		A rail's name corresponds to the name chosen when creating the rail with Mourn's RailRecorder.
 
 *		The Pathfinding is not perfect and if the character gets stuck the mining work will stop.
-		My recommendation is manually moving your character until they are no longer stuck, which should not be a problem since AFK resource gathering is not allowed on Eventine anyway.
+		My recommendation is manually moving your character until they are no longer stuck.
+		This should not be a problem since AFK resource gathering is not allowed on Eventine anyway.
 
 
 *	BAG ALTERNATIVE:
@@ -76,17 +77,18 @@
 			
 			Paste that number on line 6 of the script to replace the serial number currently their.
 		
-		This will cause the script to set the ore bag to that selected bag every time it is run, so you don't need to use the Set Ore Bag button and target that bag every time.
+		This will cause the script to set the ore bag to that selected bag every time it is run.
+		This means you don't need to use the Set Ore Bag button and target that bag every time.
 		Using the set ore bag button will override this manually selected bag.
 
 
 	Credit:
 		I based this mining script on the following:
 		
-			Credzba's mining.py						http://razorenhanced.net/download/scripts/credzba/mining.py
-			Credzba's common.py						http://razorenhanced.net/download/scripts/credzba/common.py
-			Fate's Whim's automine.py				http://razorenhanced.net/download/scripts/fateswhim/automine.py
-			Mourn's RailRecorder.py					http://razorenhanced.net/download/scripts/mourn/RailRecorder.py
+			Credzba's mining.py		http://razorenhanced.net/download/scripts/credzba/mining.py
+			Credzba's common.py		http://razorenhanced.net/download/scripts/credzba/common.py
+			Fate's Whim's automine.py	http://razorenhanced.net/download/scripts/fateswhim/automine.py
+			Mourn's RailRecorder.py		http://razorenhanced.net/download/scripts/mourn/RailRecorder.py
 		
 		The links are for the actual scripts. The links to those scripts and others are aggregated on the following pages:
 			http://razorenhanced.net/dokuwiki/doku.php?id=toolscripts
