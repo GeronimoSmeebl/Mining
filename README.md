@@ -15,7 +15,7 @@ I bolded the parts I thought most important to explain.
 	* **__The script is not perfect and has some edge case issues; the stop button can sometimes stop it from working, necessitating restarting the script. See the Known Bugs section for more information.__**
 	* **__I am happy to improve this script to the best of my ability. Please PM me (Geronimo Smeebl) if you have any problems or suggestions.__**
 
-* BUTTONS:
+* Buttons:
 	* Choose Tool Manually:
 		* This allows the user to mine with a specific tool of their choosing. This feature is disabled by default.
 		* Clicking the button and target your preferred pickaxe to use this feature.
@@ -30,7 +30,7 @@ I bolded the parts I thought most important to explain.
 		* The user must choose a bag for their ore.
 		* This button allows the user to choose the bag in which they wish to store their ore.
 
-		* This button must be used every time the script is run with the exception of the BAG ALTERNATIVE described below.
+		* This button must be used every time the script is run with the exception of the Bag Alternative section below.
 
 	* Toggle Using Gargish Pickaxe:
 		* This allows the user to decide whether or not they want to mine with (a) gargish pickaxe(s). This feature is disabled by default.
@@ -48,7 +48,7 @@ I bolded the parts I thought most important to explain.
 		* Rail Mining is described below.
 
 
-* **__RAIL MINING__**:
+* **__Rail Mining__**:
 	* A rail is just an ordered set of locations.
 	* Rail Mining entails attempting to mine at each of the locations in the rail in order.
 
