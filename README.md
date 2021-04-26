@@ -100,4 +100,5 @@ I bolded the parts I thought most important to explain.
 	* Most bugs I've experienced are a result of malfunctions with rail mining.
 	* To mitigate bugs with rail mining, I would recommend not pressing start until your character is somewhat near the first location in your rail.
 	* If the STOP button is pressed and there is no message stating "Finished with mining work." then the script may not continue to function as intended which will necessitate stopping the script using the RE stop button or with the close button on the interface, then starting the script again.
-	* __I have not experienced, nor do I expect and bugs whose effects last beyond the termination of the script in which they arose (i.e. to my knowledge, any bugs that come up only affect the script until you close it; they do not have an effect when running the script again)__.
+	* To my knowledge, if the script is stopped while Pathfinding is ongoing, the Pathfinding will continue past the termination of the script until the Pathfinding destination is reached.
+	* __Other than Pathfinding as described above, I have not experienced any bugs having effects lasting beyond the termination of the script in which they arose (i.e. to my knowledge, bugs that come up only have an effect until you close the script; they do not have an effect when running the script again)__.
