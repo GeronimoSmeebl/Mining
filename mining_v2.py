@@ -236,6 +236,28 @@ def mine_spot(tool, bag):
             yStart = Player.Position.Y
             land_id = Statics.GetLandID(x, y, Player.Map)
             Misc.SendMessage("X: {} Y: {} LandID: 0x{:x} ImPassable: {}".format(x, y, land_id, Statics.GetLandFlag(land_id, "Impassable")))
+            if not Statics.GetLandFlag(land_id, "Impassable") or land_id in CaveTiles:
+            
+                Player.Walk('East')
+                Misc.Pause(400)
+                x_delta, y_delta = MotionMap[Player.Direction]
+                x = Player.Position.X + x_delta
+                y = Player.Position.Y + y_delta
+                xStart = Player.Position.X
+                yStart = Player.Position.Y
+                land_id = Statics.GetLandID(x, y, Player.Map)
+                Misc.SendMessage("X: {} Y: {} LandID: 0x{:x} ImPassable: {}".format(x, y, land_id, Statics.GetLandFlag(land_id, "Impassable")))
+                if not Statics.GetLandFlag(land_id, "Impassable") or land_id in CaveTiles:
+            
+                    Player.Walk('South')
+                    Misc.Pause(400)
+                    x_delta, y_delta = MotionMap[Player.Direction]
+                    x = Player.Position.X + x_delta
+                    y = Player.Position.Y + y_delta
+                    xStart = Player.Position.X
+                    yStart = Player.Position.Y
+                    land_id = Statics.GetLandID(x, y, Player.Map)
+                    Misc.SendMessage("X: {} Y: {} LandID: 0x{:x} ImPassable: {}".format(x, y, land_id, Statics.GetLandFlag(land_id, "Impassable")))
             
     if Statics.GetLandFlag(land_id, "Impassable") or land_id in CaveTiles:
         Journal.Clear()
